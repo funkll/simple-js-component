@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
+
+        .hide {
+            display: none; }
+
+        .menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            float: left;
+            min-width: 10rem;
+            padding: 0.5rem 0;
+            margin: 0.125rem 0 0;
+            font-size: 1rem;
+            color: #212529;
+            text-align: left;
+            list-style: none;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 0.25rem; }
+
+        .menu:hover {
+            cursor: pointer; }
+    </style>
+    <title>Hello, world!</title>
+</head>
+<body>
+    <div class='dropdown'>
+        <button class='btn btn-secondary dropdown-toggle title' aria-haspopup="true" aria-expanded="false">Select an option</button>
+        <div class='menu hide'>
+            <div class='dropdown-item option' id='option1'>Option 1</div>
+            <div class='dropdown-item option' id='option2'>Option 2</div>
+            <div class='dropdown-item option' id='option3'>Option 3</div>
+            <div class="dropdown-divider"></div>
+            <div class='dropdown-item option' id='option4'>Option 4</div>
+        </div>
+        <span id='result'>The result is: </span>
+    </div>
+
+    <div class='dropdown'>
+        <button class='btn btn-secondary dropdown-toggle title' aria-haspopup="true" aria-expanded="false">Select an option</button>
+        <div class='menu pointerCursor hide'>
+            <div class='dropdown-item option' id='option1'>Option 1</div>
+            <div class='dropdown-item option' id='option2'>Option 2</div>
+            <div class='dropdown-item option' id='option3'>Option 3</div>
+            <div class='dropdown-item option' id='option4'>Option 4</div>
+        </div>
+        <span id='result'>The result is: </span>
+    </div>
+    <div class='dropdown'>
+        <button class='btn btn-secondary dropdown-toggle title' aria-haspopup="true" aria-expanded="false">Select an option</button>
+        <div class='menu pointerCursor hide'>
+            <div class='dropdown-item option' id='option1'>Option 1</div>
+            <div class='dropdown-item option' id='option2'>Option 2</div>
+            <div class='dropdown-item option' id='option3'>Option 3</div>
+            <div class='dropdown-item option' id='option4'>Option 4</div>
+        </div>
+        <span id='result'>The result is: </span>
+    </div>
+    <script src="dropdown.js"></script>
+</body>
+</html>
