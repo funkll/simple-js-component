@@ -9,5 +9,5 @@ To use it, simply download all the file, all ready to use.
 
 ## list
 - dropdown
-
-
+- timer
+- slide
