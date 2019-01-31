@@ -3,10 +3,36 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../style/bootstrap.min.css">
+        <style>
+            .slide-img{
+                display: none;
+            }
+            .active {
+                display: block;
+            }
+        </style>
         <title>slide</title>
     </head>
     <body>
-        <p>hello world</p>
+        <div class="carousel slide">
+            <div class="carousel-inner">
+                <img src="./img/1.jpg" class="slide-img img-fluid w-100" alt="">
+                <img src="./img/2.jpg" class="slide-img img-fluid active w-100" alt="">
+                <img src="./img/3.jpg" class="slide-img img-fluid w-100" alt="">
+            </div>
+
+            <a class="carousel-control-prev" >
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+            <ol class="indis carousel-indicators">
+                <li class="indi active"></li>
+                <li class="indi"></li>
+                <li class="indi"></li>
+            </ol>
+        </div>
         <script src="slide.js"></script>
     </body>
 </html>
