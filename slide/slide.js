@@ -29,16 +29,6 @@ var bindAll = function(selector, eventName, callback) {
     }
 }
 
-var find = function(element, selector) {
-    var e = element.querySelector(selector)
-    if (e == null) {
-        var s = `元素没找到，选择器 ${selector} 没有找到或者 js 没有放在 body 前面`
-        alert(s)
-    } else {
-        return e
-    }
-}
-
 var removeClassAll = function(className) {
     var selector = '.' + className
     var elements = es(selector)
