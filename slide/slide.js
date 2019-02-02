@@ -39,7 +39,6 @@ var removeClassAll = function(className) {
 //todo 拿到按钮的id,用这个id匹配到相应的图片
 //并且把当前激活的图片id标记到data-active
 var showImagAtIndex = (index) => {
-    removeClassAll('active')
     var selector = '#img-' + String(index)
     e(selector).classList.add('active')
 }
@@ -47,6 +46,7 @@ var showImagAtIndex = (index) => {
 //todo 点击按钮，清掉所有active,给点击的按钮添加active
 var bindEventIndi = () => {
     bindAll('.indi', 'mouseover', function () {
+        removeClassAll('active')
         var self = event.target
         self.classList.add('active')
         var index = self.dataset.index
@@ -68,6 +68,7 @@ var nextIndex = (slide, offset) => {
 //一开始要把data-active 和 img active, indi active匹配，才不会让打开的时候很奇怪
 var bindEventSlide = () => {
     bindAll('.slide-btn', 'click', function () {
+        removeClassAll('active')
         var self = event.target
         var button = self.closest('.slide-btn')
         var offset = Number(button.dataset.offset)
