@@ -37,15 +37,19 @@ var removeClassAll = function(className) {
     }
 }
 
+var showImgAtIndex = (index) => {
+    removeClassAll('show')
+    var selector = '#img-' + String(index)
+    e(selector).classList.add('show')
+}
+
 var bindEventIndi = () => {
     bindAll('.indi', 'mouseover', function () {
         removeClassAll('active')
-        removeClassAll('show')
         var self = event.target
         self.classList.add('active')
         var index = self.dataset.index
-        var selector = '#img-' + String(index)
-        e(selector).classList.add('show')
+        showImgAtIndex(index)
     })
 }
 var nextIndex = (slide, offset) => {
@@ -56,15 +60,13 @@ var nextIndex = (slide, offset) => {
 }
 var bindEventSlide = () => {
     bindAll('.slide-btn', 'click', function () {
-        removeClassAll('show')
         var self = event.target
         var button = self.closest('.slide-btn')
         var offset = Number(button.dataset.offset)
         var slide = e('.carousel-inner')
         var newIndex = nextIndex(slide, offset)
         slide.dataset.active = newIndex
-        var selector = '#img-' + String(newIndex)
-        e(selector).classList.add('show')
+        showImgAtIndex(newIndex)
     })
 }
 
