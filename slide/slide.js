@@ -22,7 +22,6 @@ var es = function(selector) {
 
 var bindAll = function(selector, eventName, callback) {
     var elements = es(selector)
-    log('elements', elements)
     for (var i = 0; i < elements.length; i++) {
         var e = elements[i]
         e.addEventListener(eventName, callback)
@@ -38,7 +37,9 @@ var removeClassAll = function(className) {
     }
 }
 //todo 拿到按钮的id,用这个id匹配到相应的图片
+//并且把当前激活的图片id标记到data-active
 var showImagAtIndex = (index) => {
+    removeClassAll('active')
     var selector = '#img-' + String(index)
     e(selector).classList.add('active')
 }
@@ -46,16 +47,43 @@ var showImagAtIndex = (index) => {
 //todo 点击按钮，清掉所有active,给点击的按钮添加active
 var bindEventIndi = () => {
     bindAll('.indi', 'mouseover', function () {
-        removeClassAll('active')
         var self = event.target
         self.classList.add('active')
         var index = self.dataset.index
         showImagAtIndex(index)
     })
 }
-//todo 点击左右按钮，滑到下一个图片
-var __main = () => {
+//todo 利用offset 和 data-active计算出下一个图片的index
+//off
+var nextIndex = (slide, offset) => {
+    var numberOfImgs = Number(slide.dataset.imgs)
+    var activeIndex = Number(slide.dataset.active)
+    var i = (activeIndex + offset + numberOfImgs) % numberOfImgs
+    log('i', i, typeof i)
+    return i
+}
+//todo 点击左右按钮,改变data-active的值
+//计算出下个index， offset 是-+1的意思，并显示下个index
+//要想利用凯撒函数，必须用0，1，2，3
+//一开始要把data-active 和 img active, indi active匹配，才不会让打开的时候很奇怪
+var bindEventSlide = () => {
+    bindAll('.slide-btn', 'click', function () {
+        var self = event.target
+        var button = self.closest('.slide-btn')
+        var offset = Number(button.dataset.offset)
+        var slide = e('.carousel-inner')
+        var newIndex = nextIndex(slide, offset)
+        slide.dataset.active = newIndex
+        showImagAtIndex(newIndex)
+    })
+}
+
+var bindEvents = () => {
     bindEventIndi()
+    bindEventSlide()
+}
+var __main = () => {
+    bindEvents()
 }
 
 __main()
