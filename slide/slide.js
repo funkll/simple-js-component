@@ -37,13 +37,21 @@ var removeClassAll = function(className) {
         e.classList.remove(className)
     }
 }
-//todo 点击按钮，清掉所有active,给点击的按钮添加active
 //todo 拿到按钮的id,用这个id匹配到相应的图片
+var showImagAtIndex = (index) => {
+    var selector = '#img-' + String(index)
+    e(selector).classList.add('show')
+}
+
+//todo 点击按钮，清掉所有active,给点击的按钮添加active
 var bindEventIndi = () => {
     bindAll('.indi', 'mouseover', function () {
         removeClassAll('active')
+        removeClassAll('show')
         var self = event.target
         self.classList.add('active')
+        var index = self.dataset.index
+        showImagAtIndex(index)
     })
 }
 
