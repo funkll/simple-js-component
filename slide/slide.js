@@ -41,11 +41,15 @@ var showImgAtIndex = (index) => {
     removeClassAll('show')
     var selector = '#img-' + String(index)
     e(selector).classList.add('show')
+
+    removeClassAll('active')
+    var indi = '#indi-' + String(index)
+    e(indi).classList.add('active')
+
 }
 
 var bindEventIndi = () => {
     bindAll('.indi', 'mouseover', function () {
-        removeClassAll('active')
         var self = event.target
         self.classList.add('active')
         var index = self.dataset.index
