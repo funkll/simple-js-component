@@ -36,37 +36,35 @@ var removeClassAll = function(className) {
         e.classList.remove(className)
     }
 }
-var showImagAtIndex = (index) => {
-    var selector = '#img-' + String(index)
-    e(selector).classList.add('active')
-}
 
 var bindEventIndi = () => {
     bindAll('.indi', 'mouseover', function () {
         removeClassAll('active')
+        removeClassAll('show')
         var self = event.target
         self.classList.add('active')
         var index = self.dataset.index
-        showImagAtIndex(index)
+        var selector = '#img-' + String(index)
+        e(selector).classList.add('show')
     })
 }
 var nextIndex = (slide, offset) => {
     var numberOfImgs = Number(slide.dataset.imgs)
     var activeIndex = Number(slide.dataset.active)
     var i = (activeIndex + offset + numberOfImgs) % numberOfImgs
-    log('i', i, typeof i)
     return i
 }
 var bindEventSlide = () => {
     bindAll('.slide-btn', 'click', function () {
-        removeClassAll('active')
+        removeClassAll('show')
         var self = event.target
         var button = self.closest('.slide-btn')
         var offset = Number(button.dataset.offset)
         var slide = e('.carousel-inner')
         var newIndex = nextIndex(slide, offset)
         slide.dataset.active = newIndex
-        showImagAtIndex(newIndex)
+        var selector = '#img-' + String(newIndex)
+        e(selector).classList.add('show')
     })
 }
 
