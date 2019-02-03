@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../style/bootstrap.min.css">
+        <style>
+            .slide-img{
+                display: none;
+            }
+            .active {
+                display: block;
+            }
+            .show {
+                display: block;
+            }
+        </style>
+        <title>slide</title>
+    </head>
+    <body>
+        <div class="carousel slide">
+            <div class="carousel-inner" data-imgs="4" data-active="1">
+                <img src="./img/1.jpg" class="slide-img w-100" id="img-0" alt="">
+                <img src="./img/2.jpg" class="slide-img w-100 show" id="img-1" alt="">
+                <img src="./img/3.jpg" class="slide-img w-100" id="img-2" alt="">
+                <img src="./img/4.jpeg" class="slide-img w-100" id="img-3" alt="">
+            </div>
+            <a class="slide-btn carousel-control-prev" data-offset="-1">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="slide-btn carousel-control-next" data-offset="1">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+            <ol class="indis carousel-indicators">
+                <li id="indi-0" class="indi" data-index="0"></li>
+                <li id="indi-1" class="indi active" data-index="1"></li>
+                <li id="indi-2" class="indi" data-index="2"></li>
+                <li id="indi-3" class="indi" data-index="3"></li>
+            </ol>
+        </div>
+        <script src="slide.js"></script>
+    </body>
+</html>
