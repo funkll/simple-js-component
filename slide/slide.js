@@ -45,7 +45,6 @@ var showImgAtIndex = (index) => {
     removeClassAll('active')
     var indi = '#indi-' + String(index)
     e(indi).classList.add('active')
-
 }
 
 var bindEventIndi = () => {
@@ -62,6 +61,7 @@ var nextIndex = (slide, offset) => {
     var i = (activeIndex + offset + numberOfImgs) % numberOfImgs
     return i
 }
+
 var bindEventSlide = () => {
     bindAll('.slide-btn', 'click', function () {
         var self = event.target
@@ -74,9 +74,23 @@ var bindEventSlide = () => {
     })
 }
 
+var playNextImg = () => {
+    var slide = e('.carousel-inner')
+    var newIndex = nextIndex(slide, 1)
+    slide.dataset.active = newIndex
+    showImgAtIndex(newIndex)
+}
+
+var autoPlay = () => {
+    setInterval(function () {
+        playNextImg()
+    }, 2000)
+}
+
 var bindEvents = () => {
     bindEventIndi()
     bindEventSlide()
+    autoPlay()
 }
 var __main = () => {
     bindEvents()
